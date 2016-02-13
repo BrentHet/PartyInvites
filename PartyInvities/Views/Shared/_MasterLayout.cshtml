@@ -1,0 +1,40 @@
+﻿@using PartyInvities.Extensions;
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.paper.css" rel="stylesheet" />
+    <style>
+        .btn a {
+            color: white;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #F1F1F1;
+        }
+
+        .table-content {
+            margin: auto;
+            width: 60%;
+            padding: 5px;
+            border-collapse: separate;
+            border-spacing: 10px;
+        }
+
+        p.important-question {
+            color: green;
+            font-size: 1.5em;
+            padding: 0px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

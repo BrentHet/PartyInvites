@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Home Controller - Index Action</title>
+</head>
+<body>
+    <div class="text-center">
+        <h2> Welcome to Brent's Sport's Party Page </h2>
+        <h3>@(ViewBag.UserName + "'s favorite team is the ") @ViewBag.FavoriteTeam.</h3>
+        <br />
+        <table class="table-content">
+            <tr>
+                <td><img src="~/images/ncLogo.jpg"/></td>
+                <td><p class="important-question">Do you want to attend the UNC vs Duke football watching party at noon on Saturday, Nov 7th?</p></td>
+                <td><img src="~/images/dukeLogo.jpg" /></td>
+            </tr>
+        </table>
+        <div class="btn btn-primary">
+            @Html.ActionLink("Let me know!", "RsvpForm")
+        </div>
+        <div class="btn btn-primary">@Html.ActionLink("View OakGrove", "Index", "OakGrove")</div>
+    </div>
+</body>
+</html>
