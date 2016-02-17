@@ -47,5 +47,15 @@ namespace PartyInvities.Controllers
         {
             return RedirectToAction("RsvpForm", "Home");
         }
+
+		public ViewResult ListInfo()
+		{
+			return View("Result", new Result { ControllerName = "OakGrove", ActionName = "ListInfo" });
+		}
+
+		public ViewResult List()
+		{
+			return View("Result", new Result { ControllerName = "OakGrove", ActionName = "List" });
+		}
     }
 }

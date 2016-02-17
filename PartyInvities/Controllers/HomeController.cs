@@ -1,4 +1,5 @@
 ﻿using PartyInvities.Models;
+using PartyInvities.Infrastructure;
 using System;
 using System.Diagnostics;
 using System.Collections.Generic;
@@ -14,6 +15,9 @@ namespace PartyInvities.Controllers
     public class HomeController : Controller
     {
         // GET: Home
+        // [Authorize(Users = "admin")]
+        //[PartyUnhandledException]
+        [HandleError(ExceptionType = typeof(ArgumentNullException), View = "PrettyError")]
         public ActionResult Index()
         {
             //LearnCSharp learn = new LearnCSharp(15);
@@ -23,9 +27,8 @@ namespace PartyInvities.Controllers
             string forward = "ReverseMe";
             var backward = forward.ToCharArray().Reverse().ToArray();
 
-
-            var dict = new Dictionary<int,string>{{1, "Oklahoma"}, {2, "UNC"}, {3, "Kansas"} };
-            IEnumerator<KeyValuePair<int, string>> myRator = dict.GetEnumerator();
+            var dict = new Dictionary<object,string>{{1, "Oklahoma"}, {2, "UNC"}, {3, "Kansas"} };
+            IEnumerator<KeyValuePair<object, string>> myRator = dict.GetEnumerator();
             while (myRator.MoveNext())
             {
                 Debug.WriteLine(String.Concat(myRator.Current.Value, " is overrated at #", myRator.Current.Key.ToString()));
@@ -47,6 +50,7 @@ namespace PartyInvities.Controllers
         }
 
         [HttpGet]
+        // [DployAuth]
         public ActionResult RsvpForm()
         {
             return View();
@@ -82,5 +86,16 @@ namespace PartyInvities.Controllers
                 return View();
             }
         }
+
+        [CustomAction]
+        public string FilterTest()
+        {
+            return "this is my filter test";
+        }
+
+		public ViewResult ListInfo()
+		{
+			return View("Result", new Result { ControllerName = "Home", ActionName = "ListInfo"} );
+		}
     }
 }

@@ -1,0 +1,11 @@
+﻿@model  HandleErrorInfo 
+
+@{
+    ViewBag.Title = "PrettyError";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<h2>PrettyError</h2>
+Your error has been emailed to the Party Headquarters development group.
+<br>
+The error message is @((Exception)Model.Exception).Message

@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <p><label>Username:</label><input name="username" /></p>
+    <p><label>Password:</label><input name="password" type="password" /></p>
+    <input type="submit" value="Log in" />
+}
