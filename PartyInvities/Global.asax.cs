@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using PartyInvities.Infrastructure;
 
 namespace PartyInvities
 {
@@ -12,7 +13,10 @@ namespace PartyInvities
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+			ControllerBuilder.Current.SetControllerFactory(new CustomControllerFactory());
         }
     }
 }

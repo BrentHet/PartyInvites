@@ -34,7 +34,17 @@
 </head>
 <body>
     <div>
+        @if (IsSectionDefined("TopNav")) { 
+            @RenderSection("TopNav")
+        }
+        else
+        {
+            <div class="text-center"><b>There is no TopNav Section in this View.</b></div>
+        }
+
         @RenderBody()
+
+        @RenderSection("ContactUs", false)
     </div>
 </body>
 </html>

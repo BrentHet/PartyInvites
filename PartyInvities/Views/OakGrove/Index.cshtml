@@ -7,12 +7,20 @@
  @using (Html.BeginForm())
  {
     <div class="text-center">
-        <br />
-        <div class="btn btn-primary">@Html.ActionLink("Take me back to the Party Page!", "Index", "Home", null, new { id = @Model.ID })</div>
-        <div class="btn btn-primary">@Html.ActionLink("Take me to the RSVP Form", "Away") </div>
-        <h2>@Model.Name</h2>
-        <h3>@Model.ShortDescription</h3>
-        <br />
+        @section TopNav {        
+        <div class="text-center">
+            <br />
+            <div class="btn btn-primary">@Html.ActionLink("Take me back to the Party Page!", "Index", "Home", null, new { id = @Model.ID })</div>
+            <div class="btn btn-primary">@Html.ActionLink("Take me to the RSVP Form", "Away") </div>
+            <div class="btn btn-primary">@Html.Partial("MyPartial") </div>
+        </div>        }
+
+        <div>
+            <h2>@Model.Name</h2>
+            <h3>@Model.ShortDescription</h3>
+            <br />
+        </div>
+
        @Html.Widget("home_page_top")
         <table class="table-content">
             <tr>
@@ -20,9 +28,16 @@
                 <td><img src="~/images/RainbowRight.jpg" height="400" width="600" /></td>
             </tr>
         </table>
-        <p class="important-question">Do you want to schedule a viewing of the condo?</p>
-        <div class="btn btn-primary">
-            <a href="mailto:bhetland@outlook.com">Email Us</a>
-        </div>
+        <br />
+        
+        @Html.Partial("MyStronglyTypedPartial", @Model)
+
+        @section ContactUs {
+        <div class="text-center">
+            <p class="important-question">Do you want to schedule a viewing of the condo?</p>
+            <div class="btn btn-primary">
+                <a href="mailto:bhetland@outlook.com">Email Us</a>
+            </div>
+        </div>        }
     </div>
 }

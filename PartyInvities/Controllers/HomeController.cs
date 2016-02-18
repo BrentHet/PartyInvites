@@ -27,6 +27,8 @@ namespace PartyInvities.Controllers
             string forward = "ReverseMe";
             var backward = forward.ToCharArray().Reverse().ToArray();
 
+			//return View(backward);
+
             var dict = new Dictionary<object,string>{{1, "Oklahoma"}, {2, "UNC"}, {3, "Kansas"} };
             IEnumerator<KeyValuePair<object, string>> myRator = dict.GetEnumerator();
             while (myRator.MoveNext())

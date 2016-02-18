@@ -217,6 +217,8 @@
     <Content Include="Views\RentalProperties\Index.cshtml" />
     <Content Include="Views\Shared\PrettyError.cshtml" />
     <Content Include="Views\Shared\Result.cshtml" />
+    <Content Include="Views\Shared\MyPartial.cshtml" />
+    <Content Include="Views\Shared\MyStronglyTypedPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
