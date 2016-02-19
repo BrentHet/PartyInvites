@@ -14,17 +14,13 @@ namespace PartyInvities
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.IgnoreRoute("Content/{filename}.html");
 
-			routes.MapRoute(
-				name: "OakGroveHome",
-				url: "{controller}/{action}",
-				defaults: new { controller = "OakGrove", action = "Index" }
-			);
+			routes.MapRoute(null, "{controller}/{action}");
 
-			routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}",
-                defaults: new { controller = "Home", action = "Index" }
-            );
+			//routes.MapRoute(
+			//	name: "Default",
+			//	url: "{controller}/{action}",
+			//	defaults: new { controller = "RentalProp", action = "Index" }
+			//);
 
 			//routes.MapRoute(
 			//    name: "OakGrove",

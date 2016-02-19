@@ -20,6 +20,10 @@
                 <td><img src="~/images/dukeLogo.jpg" /></td>
             </tr>
         </table>
+        <div>
+            This is from a Child Action:
+            @Html.Action("ListInfo", "OakGrove")
+        </div>
         <div class="btn btn-primary">
             @Html.ActionLink("Let me know!", "RsvpForm")
         </div>

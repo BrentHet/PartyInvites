@@ -12,6 +12,7 @@
             <br />
             <div class="btn btn-primary">@Html.ActionLink("Take me back to the Party Page!", "Index", "Home", null, new { id = @Model.ID })</div>
             <div class="btn btn-primary">@Html.ActionLink("Take me to the RSVP Form", "Away") </div>
+            <p>This "Take Me Home" button is from a PartialView</p>
             <div class="btn btn-primary">@Html.Partial("MyPartial") </div>
         </div>        }
 
@@ -31,6 +32,7 @@
         <br />
         
         @Html.Partial("MyStronglyTypedPartial", @Model)
+        @Html.Action("ListInfo")
 
         @section ContactUs {
         <div class="text-center">

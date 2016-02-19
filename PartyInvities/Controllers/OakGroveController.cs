@@ -37,17 +37,29 @@ namespace PartyInvities.Controllers
                     ZipCode = 27215
                 },
                 2003,
-                130
+                130,
+				BuildingType.Condo
             );
 
             return View(rentalProperty);
         }
 
-        public RedirectToRouteResult Away()
-        {
-            return RedirectToAction("RsvpForm", "Home");
-        }
+		public ViewResult Helpers()
+		{
+			ViewBag.Fruits = new string[] { "apple", "grapes", "muskmellon" };
+			ViewBag.Stocks = new string[] { "APPL", "MSFT", "EMC" };
 
+			string message = "This is an input element: <input>";
+
+			return View((object)message);
+		}
+
+        //public RedirectToRouteResult Away()
+        //{
+        //    return RedirectToAction("RsvpForm", "Home");
+        //}
+
+		[ChildActionOnly]
 		public ViewResult ListInfo()
 		{
 			return View("Result", new Result { ControllerName = "OakGrove", ActionName = "ListInfo" });
@@ -57,5 +69,7 @@ namespace PartyInvities.Controllers
 		{
 			return View("Result", new Result { ControllerName = "OakGrove", ActionName = "List" });
 		}
+
+
     }
 }

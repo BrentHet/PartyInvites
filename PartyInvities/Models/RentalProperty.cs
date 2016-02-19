@@ -27,6 +27,7 @@ namespace PartyInvities.Models
         private PostalAddress _address;
         private int _yearBuilt;
         private decimal? _monthlyHOAFee;
+		private BuildingType _buildingType;
 
         [Key]
         public int ID { get { return _id; } set { _id = value; } }
@@ -36,8 +37,10 @@ namespace PartyInvities.Models
         public PostalAddress Address { get { return _address; } }
         public int YearBuilt { get { return _yearBuilt; } }
         public decimal? MonthlyHOAFee { get { return _monthlyHOAFee; } }
+		public BuildingType Building {  get { return _buildingType;  } }
 
-        public RentalProperty(int id, string name, string shortDescription, int addressID, PostalAddress address, int yearBuilt, decimal? monthlyHOAFee)
+        public RentalProperty(int id, string name, string shortDescription, int addressID, 
+			PostalAddress address, int yearBuilt, decimal? monthlyHOAFee, BuildingType buildingType)
         {
             //this.Name = name;
             //this.ShortDescription = shortDescription;
@@ -52,6 +55,16 @@ namespace PartyInvities.Models
             _address = address;
             _yearBuilt = yearBuilt;
             _monthlyHOAFee = monthlyHOAFee;
+			_buildingType = buildingType;
         }
     }
+
+	public enum BuildingType
+	{
+		Condo = 1,
+		Townhome = 2,
+		Duplex = 3,
+		MultiUnit = 4,
+	}
+
 }

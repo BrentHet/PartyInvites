@@ -183,7 +183,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OakGroveController.cs" />
     <Compile Include="Controllers\PrettyErrorController.cs" />
-    <Compile Include="Controllers\RentalPropertiesController.cs" />
+    <Compile Include="Controllers\RentalController.cs" />
+    <Compile Include="Extensions\CustomHelpers.cs" />
     <Compile Include="Extensions\HTMLExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -197,7 +198,6 @@
     <Compile Include="Models\LearnCSharp.cs" />
     <Compile Include="Models\PostalAddress.cs" />
     <Compile Include="Models\RentalProperty.cs" />
-    <Compile Include="Models\RentalPropertyContext.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -209,16 +209,12 @@
     <Content Include="Views\Home\Thanks.cshtml" />
     <Content Include="Views\OakGrove\Index.cshtml" />
     <Content Include="Views\Shared\_MasterLayout.cshtml" />
-    <Content Include="Views\OakGrove\Away.cshtml" />
-    <Content Include="Views\RentalProperties\Create.cshtml" />
-    <Content Include="Views\RentalProperties\Delete.cshtml" />
-    <Content Include="Views\RentalProperties\Details.cshtml" />
-    <Content Include="Views\RentalProperties\Edit.cshtml" />
-    <Content Include="Views\RentalProperties\Index.cshtml" />
+    <Content Include="Views\OakGrove\Helpers.cshtml" />
     <Content Include="Views\Shared\PrettyError.cshtml" />
     <Content Include="Views\Shared\Result.cshtml" />
     <Content Include="Views\Shared\MyPartial.cshtml" />
     <Content Include="Views\Shared\MyStronglyTypedPartial.cshtml" />
+    <Content Include="Views\Rental\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

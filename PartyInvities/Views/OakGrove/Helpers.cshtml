@@ -1,0 +1,29 @@
+﻿@model string
+@using PartyInvities.Extensions;
+
+@{
+    ViewBag.Title = "Away";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+@helper InlineListArrayItems(string[] items) {
+    <ul>
+        @foreach (string str in items)
+        {
+        <li>@str.ToUpper() </li>
+        }
+    </ul>
+}
+
+<h2>Helpers</h2>
+The first two are Inline Helper Methods, embedded in this View.
+<div>
+    Here are the fruits: @InlineListArrayItems(ViewBag.Fruits)
+</div>
+<div>
+    Here are the stocks: @InlineListArrayItems(ViewBag.Stocks)
+</div>
+Here is the model I passed:
+<p>@Model</p>
+Here is the Helper Method in action:
+@Html.ExternalListArrayItems((string[])ViewBag.Fruits)
