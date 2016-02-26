@@ -32,6 +32,8 @@ namespace PartyInvities.Models
         [Key]
         public int ID { get { return _id; } set { _id = value; } }
         public string Name { get { return _name; } }
+
+		[Display(Name = "Description")]
         public string ShortDescription { get { return _shortDescription; } }
         public int AddressID { get { return _addressID; } }
         public PostalAddress Address { get { return _address; } }

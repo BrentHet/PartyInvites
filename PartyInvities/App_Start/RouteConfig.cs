@@ -14,7 +14,13 @@ namespace PartyInvities
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.IgnoreRoute("Content/{filename}.html");
 
-			routes.MapRoute(null, "{controller}/{action}");
+			routes.MapRoute(null, "{controller}/{action}/{ID}");
+			routes.MapRoute(
+				name: null,
+				url: "{controller}/{action}",
+				defaults: new { controller = "Home", action = "Index" }
+			);
+			//routes.MapRoute(null, "{controller}/{action}");
 
 			//routes.MapRoute(
 			//	name: "Default",
