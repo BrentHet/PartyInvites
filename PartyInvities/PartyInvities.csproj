@@ -85,6 +85,8 @@
       <HintPath>..\packages\Sendgrid.6.1.0\lib\SendGridMail.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Spatial, Version=5.6.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Spatial.5.6.2\lib\net40\System.Spatial.dll</HintPath>
       <Private>True</Private>
@@ -144,6 +146,17 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.paper.css" />
     <Content Include="Content\PrettyError.html" />
+    <Content Include="Database\RentalPropertyModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>RentalPropertyModel.Context.cs</LastGenOutput>
+      <DependentUpon>RentalPropertyModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Database\RentalPropertyModel.edmx.sql" />
+    <Content Include="Database\RentalPropertyModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>RentalPropertyModel.cs</LastGenOutput>
+      <DependentUpon>RentalPropertyModel.edmx</DependentUpon>
+    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -156,6 +169,13 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Account\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Index.cshtml" />
+    <EntityDeploy Include="Database\RentalPropertyModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RentalPropertyModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Database\RentalPropertyModel.edmx.diagram">
+      <DependentUpon>RentalPropertyModel.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\UNCPartyInvite.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Icon.png" />
@@ -184,6 +204,27 @@
     <Compile Include="Controllers\OakGroveController.cs" />
     <Compile Include="Controllers\PrettyErrorController.cs" />
     <Compile Include="Controllers\RentalController.cs" />
+    <Compile Include="Database\PostalAddress.cs">
+      <DependentUpon>RentalPropertyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\RentalProperty.cs">
+      <DependentUpon>RentalPropertyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\RentalPropertyModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RentalPropertyModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\RentalPropertyModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RentalPropertyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\RentalPropertyModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RentalPropertyModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Extensions\CustomHelpers.cs" />
     <Compile Include="Extensions\HTMLExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -234,6 +275,9 @@
     <Folder Include="Database\Repositories\" />
     <Folder Include="Views\Account\" />
     <Folder Include="Views\PrettyError\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
