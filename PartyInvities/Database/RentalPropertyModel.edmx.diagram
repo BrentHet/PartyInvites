@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="807464e6cc5741fda160bdfb3af89718" Name="Diagram1" >
+        <EntityTypeShape EntityType="RentalPropertyModel.RentalProperty" Width="1.5" PointX="3.5" PointY="2.625" />
+        <EntityTypeShape EntityType="RentalPropertyModel.PostalAddress" Width="1.5" PointX="8" PointY="2.25" />
+        <AssociationConnector Association="RentalPropertyModel.RentalPropertyPostalAddress" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
