@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace PartyInvities.Models
 {
@@ -29,16 +30,27 @@ namespace PartyInvities.Models
         private decimal? _monthlyHOAFee;
 		private BuildingType _buildingType;
 
-        [Key]
-        public int ID { get { return _id; } set { _id = value; } }
-        public string Name { get { return _name; } }
 
-		[Display(Name = "Description")]
+		[Key]
+		[HiddenInput(DisplayValue=false)]
+		public int ID { get { return _id; } set { _id = value; } }
+
+		public string Name { get { return _name; } }
+
+		[Display(Name="Description")]
         public string ShortDescription { get { return _shortDescription; } }
-        public int AddressID { get { return _addressID; } }
+
+		[HiddenInput(DisplayValue = false)]
+		public int AddressID { get { return _addressID; } }
+
         public PostalAddress Address { get { return _address; } }
-        public int YearBuilt { get { return _yearBuilt; } }
-        public decimal? MonthlyHOAFee { get { return _monthlyHOAFee; } }
+
+		[Display(Name = "Year Built")]
+		public int YearBuilt { get { return _yearBuilt; } }
+
+		[Display(Name="Monthly HOA Fee")]
+		public decimal? MonthlyHOAFee { get { return _monthlyHOAFee; } }
+
 		public BuildingType Building {  get { return _buildingType;  } }
 
         public RentalProperty(int id, string name, string shortDescription, int addressID, 

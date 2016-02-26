@@ -5,11 +5,19 @@
     Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 
+<style type="text/css">
+    h4 > label { width: inherit; }
+    .display-label, .display-field { float: left; margin-top: 0px; }
+    .display-field input { height: 16px; }
+    .display-label { clear: left; width: 110px; font-weight: bold; }
+    .display-field { margin-left: 10px;  }
+    .link-section { clear: left; }
+</style>
+
 <h2>ListByID</h2>
 
 <div>
     <h4>RentalProperty</h4>
-    <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Name)
@@ -53,7 +61,18 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div style="padding-left: 40px;">
+    <div>
+        <p>
+            <h5>This is a Whole-Model Templated Helper</h5>
+            @Html.DisplayForModel()
+        </p>
+    </div>
+    <div class="link-section">
+        <hr />
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>

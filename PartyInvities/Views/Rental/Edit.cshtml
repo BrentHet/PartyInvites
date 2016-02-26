@@ -3,8 +3,11 @@
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    Html.EnableClientValidation(false);
 }
-
+<style type="text/css">
+    td { white-space: nowrap; }
+</style>
 <h2>Edit</h2>
 
 @using (Html.BeginForm("/Rental/Edit"))
@@ -32,6 +35,19 @@
                 <td style="vertical-align: top;">@Html.Label("TextArea"):&nbsp;</td>
                 <td>@Html.TextArea("ModelNameTextBox", @Model.ShortDescription, 4, 35, null)</td>
                 <td>@Html.TextAreaFor(m => m.ShortDescription, 4, 35, null)</td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center;  ">Templated Helpers</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Building Type"):&nbsp;</td>
+                <td>@Html.Editor("Building")</td>
+                <td>@Html.EditorFor(m => m.Building)</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Street Address"):&nbsp;</td>
+                <td>@Html.Editor("Address.StreetNumberAndName")</td>
+                <td>@Html.EditorFor(m => m.Address.StreetNumberAndName)</td>
             </tr>
         </table>
         <br />
