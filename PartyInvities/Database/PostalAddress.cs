@@ -14,12 +14,19 @@ namespace PartyInvities.Database
     
     public partial class PostalAddress
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PostalAddress()
+        {
+            this.RentalProperties = new HashSet<RentalProperty>();
+        }
+    
         public short Id { get; set; }
         public string StreetNumberAndName { get; set; }
         public string Unit { get; set; }
         public string City { get; set; }
         public int ZipCode { get; set; }
     
-        public virtual RentalProperty RentalProperty { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RentalProperty> RentalProperties { get; set; }
     }
 }

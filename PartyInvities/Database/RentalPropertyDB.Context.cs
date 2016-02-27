@@ -13,10 +13,10 @@ namespace PartyInvities.Database
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class RentalPropertyContext : DbContext
+    public partial class RealEstateEntities : DbContext
     {
-        public RentalPropertyContext()
-            : base("name=RentalPropertyContext")
+        public RealEstateEntities()
+            : base("name=RealEstateEntities")
         {
         }
     
@@ -25,7 +25,7 @@ namespace PartyInvities.Database
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<RentalProperty> RentalProperties { get; set; }
         public virtual DbSet<PostalAddress> PostalAddresses { get; set; }
+        public virtual DbSet<RentalProperty> RentalProperties { get; set; }
     }
 }

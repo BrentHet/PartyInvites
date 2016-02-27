@@ -146,16 +146,15 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.paper.css" />
     <Content Include="Content\PrettyError.html" />
-    <Content Include="Database\RentalPropertyModel.Context.tt">
+    <Content Include="Database\RentalPropertyDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>RentalPropertyModel.Context.cs</LastGenOutput>
-      <DependentUpon>RentalPropertyModel.edmx</DependentUpon>
+      <DependentUpon>RentalPropertyDB.edmx</DependentUpon>
+      <LastGenOutput>RentalPropertyDB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Database\RentalPropertyModel.edmx.sql" />
-    <Content Include="Database\RentalPropertyModel.tt">
+    <Content Include="Database\RentalPropertyDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>RentalPropertyModel.cs</LastGenOutput>
-      <DependentUpon>RentalPropertyModel.edmx</DependentUpon>
+      <DependentUpon>RentalPropertyDB.edmx</DependentUpon>
+      <LastGenOutput>RentalPropertyDB.cs</LastGenOutput>
     </Content>
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -169,12 +168,12 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Account\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Index.cshtml" />
-    <EntityDeploy Include="Database\RentalPropertyModel.edmx">
+    <EntityDeploy Include="Database\RentalPropertyDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>RentalPropertyModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>RentalPropertyDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Database\RentalPropertyModel.edmx.diagram">
-      <DependentUpon>RentalPropertyModel.edmx</DependentUpon>
+    <Content Include="Database\RentalPropertyDB.edmx.diagram">
+      <DependentUpon>RentalPropertyDB.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\UNCPartyInvite.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
@@ -205,25 +204,25 @@
     <Compile Include="Controllers\PrettyErrorController.cs" />
     <Compile Include="Controllers\RentalController.cs" />
     <Compile Include="Database\PostalAddress.cs">
-      <DependentUpon>RentalPropertyModel.tt</DependentUpon>
+      <DependentUpon>RentalPropertyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\RentalProperty.cs">
-      <DependentUpon>RentalPropertyModel.tt</DependentUpon>
+      <DependentUpon>RentalPropertyDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database\RentalPropertyModel.Context.cs">
+    <Compile Include="Database\RentalPropertyDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RentalPropertyModel.Context.tt</DependentUpon>
+      <DependentUpon>RentalPropertyDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database\RentalPropertyModel.cs">
+    <Compile Include="Database\RentalPropertyDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RentalPropertyModel.tt</DependentUpon>
+      <DependentUpon>RentalPropertyDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database\RentalPropertyModel.Designer.cs">
+    <Compile Include="Database\RentalPropertyDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RentalPropertyModel.edmx</DependentUpon>
+      <DependentUpon>RentalPropertyDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Extensions\CustomHelpers.cs" />
     <Compile Include="Extensions\HTMLExtensions.cs" />
@@ -272,7 +271,6 @@
     <Folder Include="Areas\Investment\Controllers\" />
     <Folder Include="Areas\Investment\Models\" />
     <Folder Include="Areas\Investment\Views\Shared\" />
-    <Folder Include="Database\Repositories\" />
     <Folder Include="Views\Account\" />
     <Folder Include="Views\PrettyError\" />
   </ItemGroup>

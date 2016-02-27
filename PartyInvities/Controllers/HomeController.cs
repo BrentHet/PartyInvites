@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using System.Net.Mail;
 using SendGrid;
 using System.Net;
+using PartyInvities.Database;
 
 namespace PartyInvities.Controllers
 {
@@ -19,39 +20,75 @@ namespace PartyInvities.Controllers
         //[PartyUnhandledException]
         [HandleError(ExceptionType = typeof(ArgumentNullException), View = "PrettyError")]
         public ActionResult Index()
-        {
-            //LearnCSharp learn = new LearnCSharp(15);
-            //learn.DaysToLearn = 19;
-            //int[][][] my3DArray = learn.CreateJaggedArray<int[][][]>(1, 2, 3);
+		{
+			//TestJunk();
+			using (var rentDB = new RealEstateEntities())
+			{
+				//var addr = new PartyInvities.Database.PostalAddress
+				//{
+				//	StreetNumberAndName = "3743 Forestdate Dr.",
+				//	Unit = "1C",
+				//	City = "Burlington",
+				//	ZipCode = 27215
+				//};
 
-            string forward = "ReverseMe";
-            var backward = forward.ToCharArray().Reverse().ToArray();
+				//rentDB.PostalAddresses.Add(addr);
+				//rentDB.SaveChanges();
+
+				var addrQry = from ad in rentDB.PostalAddresses
+							  orderby ad.StreetNumberAndName
+							  select ad;
+
+				foreach (var item in addrQry)
+				{
+					Response.Write(string.Concat(item.StreetNumberAndName, "<br />"));
+				}
+
+				var rQry = from rps in rentDB.RentalProperties
+						   join cm in rentDB.PostalAddresses on rps.AddressID equals cm.Id
+						   select rps;
+
+				foreach (var rp in rQry)
+				{
+					Response.Write(string.Concat(rp.Name, " is at ", rp.PostalAddress.StreetNumberAndName, "<br />"));
+				}
+			}
+
+			ViewBag.FavoriteTeam = "UNC Tar Heels";
+			ViewBag.UserName = "Brent";
+			return View();
+		}
+
+		private static void TestJunk()
+		{
+			//LearnCSharp learn = new LearnCSharp(15);
+			//learn.DaysToLearn = 19;
+			//int[][][] my3DArray = learn.CreateJaggedArray<int[][][]>(1, 2, 3);
+
+			string forward = "ReverseMe";
+			var backward = forward.ToCharArray().Reverse().ToArray();
 
 			//return View(backward);
 
-            var dict = new Dictionary<object,string>{{1, "Oklahoma"}, {2, "UNC"}, {3, "Kansas"} };
-            IEnumerator<KeyValuePair<object, string>> myRator = dict.GetEnumerator();
-            while (myRator.MoveNext())
-            {
-                Debug.WriteLine(String.Concat(myRator.Current.Value, " is overrated at #", myRator.Current.Key.ToString()));
-            }
+			var dict = new Dictionary<object, string> { { 1, "Oklahoma" }, { 2, "UNC" }, { 3, "Kansas" } };
+			IEnumerator<KeyValuePair<object, string>> myRator = dict.GetEnumerator();
+			while (myRator.MoveNext())
+			{
+				Debug.WriteLine(String.Concat(myRator.Current.Value, " is overrated at #", myRator.Current.Key.ToString()));
+			}
 
-            foreach (int i in dict.Keys)
-            {
-                Debug.WriteLine(String.Concat(dict[i], " is ranked ", i.ToString()));
-            }
+			foreach (int i in dict.Keys)
+			{
+				Debug.WriteLine(String.Concat(dict[i], " is ranked ", i.ToString()));
+			}
 
-            foreach (var kvp in dict)
-            {
-                Debug.WriteLine(String.Concat(kvp.Value, " is ranked #", kvp.Key.ToString()));
-            }
+			foreach (var kvp in dict)
+			{
+				Debug.WriteLine(String.Concat(kvp.Value, " is ranked #", kvp.Key.ToString()));
+			}
+		}
 
-            ViewBag.FavoriteTeam = "UNC Tar Heels";
-            ViewBag.UserName = "Brent";
-            return View();
-        }
-
-        [HttpGet]
+		[HttpGet]
         // [DployAuth]
         public ActionResult RsvpForm()
         {
