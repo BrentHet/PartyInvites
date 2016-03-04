@@ -22,6 +22,15 @@ namespace PartyInvities.Controllers
         public ActionResult Index()
 		{
 			//TestJunk();
+			//EFLearning();
+
+			ViewBag.FavoriteTeam = "UNC Tar Heels";
+			ViewBag.UserName = "Brent";
+			return View();
+		}
+
+		private void EFLearning()
+		{
 			using (var rentDB = new RealEstateEntities())
 			{
 				//var addr = new PartyInvities.Database.PostalAddress
@@ -53,10 +62,6 @@ namespace PartyInvities.Controllers
 					Response.Write(string.Concat(rp.Name, " is at ", rp.PostalAddress.StreetNumberAndName, "<br />"));
 				}
 			}
-
-			ViewBag.FavoriteTeam = "UNC Tar Heels";
-			ViewBag.UserName = "Brent";
-			return View();
 		}
 
 		private static void TestJunk()

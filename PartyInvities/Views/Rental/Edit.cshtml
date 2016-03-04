@@ -40,9 +40,19 @@
                 <td colspan="3" style="text-align: center;  ">Templated Helpers</td>
             </tr>
             <tr>
+                <td>@Html.Label("[DataType(DataType.Password)]"):&nbsp;</td>
+                <td>@Html.Editor("ShortDescription")</td>
+                <td>@Html.EditorFor(m => m.ShortDescription)</td>
+            </tr>
+            <tr>
                 <td>@Html.Label("Building Type"):&nbsp;</td>
                 <td>@Html.Editor("Building")</td>
                 <td>@Html.EditorFor(m => m.Building)</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Building Type Enum"):&nbsp;</td>
+                <td>@Html.EditorFor(m => m.Building, "Building")</td>
+                <td>Html.Partial("Building")</td>
             </tr>
             <tr>
                 <td>@Html.Label("Street Address"):&nbsp;</td>
