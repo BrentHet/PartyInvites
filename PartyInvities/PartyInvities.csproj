@@ -257,6 +257,7 @@
     <Content Include="Views\Rental\Index.cshtml" />
     <Content Include="Views\Rental\ListByID.cshtml" />
     <Content Include="Views\Rental\Edit.cshtml" />
+    <Content Include="Views\Rental\GetProperties.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

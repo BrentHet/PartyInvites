@@ -1,0 +1,33 @@
+﻿@using PartyInvities.Models
+@model IEnumerable<RentalProperty>
+
+@{
+    ViewBag.Title = "GetProperties";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<h2>GetProperties</h2>
+<p></p>
+<table>
+    <thead><tr><th>Name</th><th>Street</th><th>Building Type</th></tr></thead>
+    <tbody>
+        @foreach (RentalProperty r in Model)
+        {
+            <tr>
+                <td>@r.Name</td>
+                <td>@r.Address.StreetNumberAndName</td>
+                <td>@r.Building</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@using (Html.BeginForm())
+{
+    <p></p>
+    <div>
+        @Html.DropDownList("selectedBuilding", new SelectList(
+         new[] { "All" }.Concat(Enum.GetNames(typeof(BuildingType)))))
+        <button type="submit">Get Building Type</button>
+    </div>
+}

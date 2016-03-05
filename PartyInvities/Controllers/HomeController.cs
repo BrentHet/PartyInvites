@@ -22,6 +22,7 @@ namespace PartyInvities.Controllers
         public ActionResult Index()
 		{
 			//TestJunk();
+
 			using (var rentDB = new RealEstateEntities())
 			{
 				//var addr = new PartyInvities.Database.PostalAddress
@@ -86,6 +87,20 @@ namespace PartyInvities.Controllers
 			{
 				Debug.WriteLine(String.Concat(kvp.Value, " is ranked #", kvp.Key.ToString()));
 			}
+
+			var cnt = new Counter();
+			var dt = DateTime.Now;
+			if (dt.Second % 2 == 0)
+			{
+				Debug.WriteLine(cnt.Increment());
+			}
+			else
+			{
+				Debug.WriteLine(cnt.Decrement());
+			}
+
+			Debug.WriteLine("Current Count: " + cnt.Count.ToString() + "<br />");
+
 		}
 
 		[HttpGet]
@@ -137,4 +152,31 @@ namespace PartyInvities.Controllers
 			return View("Result", new Result { ControllerName = "Home", ActionName = "ListInfo"} );
 		}
     }
+
+	class Counter
+	{
+		private readonly int _id;
+		private int _i;
+		private static int s_n;
+
+		public Counter()
+		{
+			_id = s_n++;
+		}
+
+		public string Increment()
+		{
+			return string.Format("{0} -> {1}", _id, ++_i);
+		}
+
+		public string Decrement()
+		{
+			return string.Format("{0} -> {1}", _id, --_i);
+		}
+
+		public int Count
+		{
+			get { return _i; }
+		}
+	}
 }
