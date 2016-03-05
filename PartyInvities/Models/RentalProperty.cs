@@ -38,6 +38,8 @@ namespace PartyInvities.Models
 		public string Name { get { return _name; } }
 
 		[Display(Name="Description")]
+		[UIHint("Password")]
+		[DataType(DataType.Password)]
         public string ShortDescription { get { return _shortDescription; } }
 
 		[HiddenInput(DisplayValue = false)]
